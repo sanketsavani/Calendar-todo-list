@@ -1,27 +1,60 @@
-# CalendarApp
+# Angular Calendar Task Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.1.3.
+A responsive calendar application with task management functionality, built using Angular and Angular Material.
 
-## Development server
+## Features
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Monthly calendar view
+- Navigation between months
+- Add tasks to specific dates
+- Mark tasks as complete
+- Delete tasks
+- Responsive design for various screen sizes
+- Task count indicator for each date
 
-## Code scaffolding
+## Getting Started
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerequisites
 
-## Build
+- Node.js (v14 or later)
+- npm (v6 or later)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Installation
 
-## Running unit tests
+1. Clone the repository:
+git clone https://github.com/your-username/angular-calendar-task-manager.git
+Copy
+2. Navigate to the project directory:
+cd angular-calendar-task-manager
+Copy
+3. Install dependencies:
+npm install
+Copy
+### Running the Application
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+1. Start the development server:
+ng serve
+Copy
+2. Open your browser and navigate to `http://localhost:4200`
 
-## Running end-to-end tests
+## Usage
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+- Click on a date to select it and view/add tasks for that date
+- Use the left and right arrows to navigate between months
+- Add new tasks using the input field and "Add Task" button
+- Check/uncheck tasks to mark them as complete/incomplete
+- Delete tasks using the delete icon
 
-## Further help
+## Built With
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- Angular
+- Angular Material
+- Angular CDK
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
