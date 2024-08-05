@@ -1,0 +1,123 @@
+<!-- <div class="calendar-container">
+ 
+   <mat-card class="inline-block">
+    <mat-card-header>
+      <button mat-icon-button (click)="prevMonth()">
+        <mat-icon>chevron_left</mat-icon>
+      </button>
+      <span class="month-year">{{ currentMonth | date:'MMMM yyyy' }}</span>
+      <button mat-icon-button (click)="nextMonth()">
+        <mat-icon>chevron_right</mat-icon>
+      </button>
+    </mat-card-header>
+    <mat-card-content>
+      <table>
+        <thead>
+          <tr>
+            <th *ngFor="let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">{{ day }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let week of calendar">
+            <td *ngFor="let day of week" 
+                [class.current-month]="isCurrentMonth(day)"
+                [class.selected]="selectedDate && day.getTime() === selectedDate.getTime()"
+                (click)="selectDate(day)">
+              {{ day.getDate() }}
+              <div class="task-indicator" *ngIf="getTasksForDate(day).length > 0">
+                {{ getTasksForDate(day).length }}
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card *ngIf="selectedDate" class="tasks-card inline-block">
+    <mat-card-header>
+      <mat-card-title>Tasks for {{ selectedDate | date:'mediumDate' }}</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-form-field>
+        <input matInput placeholder="New task" [(ngModel)]="newTask" (keyup.enter)="addTask()">
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="addTask()">Add Task</button>
+
+      <mat-list>
+        <mat-list-item *ngFor="let task of getTasksForDate(selectedDate)">
+          <mat-checkbox [checked]="task.completed" (change)="toggleTaskCompletion(formatDate(selectedDate), task.id)">
+            {{ task.description }}
+          </mat-checkbox>
+          <button mat-icon-button color="warn" (click)="deleteTask(formatDate(selectedDate), task.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+</div> -->
+
+<div class="calendar-container">
+  <div class="calendar-section">
+    <mat-card>
+      <mat-card-header>
+        <button mat-icon-button (click)="prevMonth()">
+          <mat-icon>chevron_left</mat-icon>
+        </button>
+        <span class="month-year">{{ currentMonth | date:'MMMM yyyy' }}</span>
+        <button mat-icon-button (click)="nextMonth()">
+          <mat-icon>chevron_right</mat-icon>
+        </button>
+      </mat-card-header>
+      <mat-card-content>
+        <table>
+          <thead>
+            <tr>
+              <th *ngFor="let day of ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']">{{ day }}</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let week of calendar">
+              <td *ngFor="let day of week" 
+                  [class.current-month]="isCurrentMonth(day)"
+                  [class.selected]="selectedDate && day.getTime() === selectedDate.getTime()"
+                  (click)="selectDate(day)">
+                {{ day.getDate() }}
+                <div class="task-indicator" *ngIf="getTasksForDate(day).length > 0">
+                  {{ getTasksForDate(day).length }}
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </mat-card-content>
+    </mat-card>
+  </div>
+
+  <div class="tasks-section">
+    <mat-card *ngIf="selectedDate" class="tasks-card">
+      <mat-card-header>
+        <mat-card-title>Tasks for {{ selectedDate | date:'mediumDate' }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field>
+          <input matInput placeholder="New task" [(ngModel)]="newTask" (keyup.enter)="addTask()">
+        </mat-form-field>
+        <button mat-raised-button color="primary" (click)="addTask()">Add Task</button>
+
+        <mat-list>
+          <mat-list-item *ngFor="let task of getTasksForDate(selectedDate)">
+            <mat-checkbox [checked]="task.completed" (change)="toggleTaskCompletion(formatDate(selectedDate), task.id)">
+              {{ task.description }}
+            </mat-checkbox>
+            <button mat-icon-button color="warn" (click)="deleteTask(formatDate(selectedDate), task.id)">
+              <mat-icon>delete</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
